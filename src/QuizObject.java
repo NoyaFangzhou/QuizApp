@@ -3,11 +3,11 @@ public class QuizObject {
 	
 	int score;
 	
-	public void read() {
+	public void read(String filename) {
 		
 	}
 	
-	public void write(String content) {
+	public void write(String content, String filename) {
 		
 	}
 

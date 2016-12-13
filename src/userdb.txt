@@ -1,1 +1,5 @@
-admin 100
+admin: 100
+Jerry: 0
+Jerry: 0
+Jerry: 0
+Jerry: 20
