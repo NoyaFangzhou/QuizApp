@@ -7,20 +7,25 @@ public class QuizApp {
 	public static int TOTAL_QUESTION = 50;
 	private static String USERDB = "src/userdb.txt";
 	public static void main (String [] args) {
+		if(args[0].isEmpty()) {
+			System.out.println("ERROR! Expected input should be:");
+			System.out.println("java QuizApp #{your name}");
+		}
 		System.out.println("-------------------------------------");
 		System.out.println("Welcome to use iQuiz");
 		System.out.println("User Name: " + args[0]);
 		System.out.println("Time: " + new SimpleDateFormat("yyyy/MM/dd HH:mm:ss z").format(new Date()));
-		System.out.println("\nDeveloper: XXX");
+		System.out.println("\nDeveloper: Fangzhou Liu(Jerry)");
 		System.out.println("           XXX");
+		System.out.println("\nCopyright: @Free to go");
 		System.out.println("-------------------------------------");
 //		System.out.println((char)('A'+2));
 		launch(args[0]);
 	}
 	
 	/**
-	 * Start the URTorrent Client
-	 * Take the user input as command, do operations according to the command
+	 * Start the Quiz App
+	 * @param name: the name of the user
 	 */
 	public static void launch(String name) {
 		User user = new User(name);
@@ -44,6 +49,7 @@ public class QuizApp {
 				answer = scan.nextLine();
 			}
 			q.setAnswer(answer.toUpperCase());
+			//Check wether the answer is between A-D
 			if(q.check()) {
 				System.out.println("Correct!");
 				final_score += q.getScore();
@@ -90,6 +96,7 @@ public class QuizApp {
             BufferedReader bufferedReader = 
                 new BufferedReader(fileReader);
 
+            //Read history record
             while((line = bufferedReader.readLine()) != null) {
             	int score = Integer.parseInt(line.split(": ")[1]);
             	if(curuser.getScore() >= score) {

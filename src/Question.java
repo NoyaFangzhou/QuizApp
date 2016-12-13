@@ -6,7 +6,7 @@ import java.util.*;
 public class Question extends QuizObject {
 	private static String DBNAME = "src/questiondb.txt";
 	
-	int seq;
+	int seq;//question sequence
 	
 	String questionBody;
 	
@@ -41,6 +41,7 @@ public class Question extends QuizObject {
 
             int lineno = 0;
         	int q_seq = 0;
+        	//parse the Questions from the file
             while((line = bufferedReader.readLine()) != null) {
             	if(lineno == 0) {
             		q_seq = Integer.parseInt(line.split("\\.")[0]);
@@ -134,7 +135,7 @@ public class Question extends QuizObject {
 		for(int i = 0; i< options.size(); i++) {
 			opts += (char)('A'+i) + ": " + options.get(i) + "\n";
 		}
-		return questionBody + "\n" + opts + "\n";
+		return questionBody + "\n" + opts;
 	}
 	
 	
